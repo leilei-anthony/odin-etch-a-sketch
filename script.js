@@ -1,3 +1,5 @@
+let paintColor = "black";
+
 const container = document.querySelector(".container");
 
 window.onload = function() {
@@ -31,12 +33,12 @@ function createGrid(size) {
 
             cell.addEventListener("mouseover", (event) => {
                 if(mouseDown) {
-                    cell.style.backgroundColor = "black" ;
+                    cell.style.backgroundColor = paintColor ;
                 };
             })
 
             cell.addEventListener("click", (event) => {
-                cell.style.backgroundColor = "black";
+                cell.style.backgroundColor = paintColor;
             })
         
             row.appendChild(cell);
@@ -60,4 +62,44 @@ btnGridSize.addEventListener("click", function() {
 
     clearGrid();
     createGrid(gridSize);
+})
+
+const btnRed = document.querySelector("#btnRed");
+btnRed.addEventListener("click", function() {
+    paintColor = "red";
+})
+
+const btnBlue = document.querySelector("#btnBlue");
+btnBlue.addEventListener("click", function() {
+    paintColor = "blue";
+})
+
+const btnYellow = document.querySelector("#btnYellow");
+btnYellow.addEventListener("click", function() {
+    paintColor = "yellow";
+})
+
+const btnGreen = document.querySelector("#btnGreen");
+btnGreen.addEventListener("click", function() {
+    paintColor = "green";
+})
+
+const btnOrange = document.querySelector("#btnOrange");
+btnOrange.addEventListener("click", function() {
+    paintColor = "orange";
+})
+
+const btnPurple = document.querySelector("#btnPurple");
+btnPurple.addEventListener("click", function() {
+    paintColor = "purple";
+})
+
+const btnBlack = document.querySelector("#btnBlack");
+btnBlack.addEventListener("click", function() {
+    paintColor = "black";
+})
+
+const btnWhite = document.querySelector("#btnWhite");
+btnWhite.addEventListener("click", function() {
+    paintColor = "white";
 })
