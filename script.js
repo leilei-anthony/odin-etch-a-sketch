@@ -1,5 +1,19 @@
 const container = document.querySelector(".container");
 
+window.onload = function() {
+    document.onmousemove = function() {
+        return false;
+    };
+};
+
+let mouseDown = 0;
+document.body.onmousedown = function() {
+    mouseDown = 1;
+}
+document.body.onmouseup = function() {
+    mouseDown = 0;
+}
+
 function createGrid(size) {
     for(let i = 0; i < size; i++) {
         const row = document.createElement("div");
@@ -15,6 +29,15 @@ function createGrid(size) {
             cell.style.width = cellSize + "px";
             cell.style.height = cellSize + "px";
 
+            cell.addEventListener("mouseover", (event) => {
+                if(mouseDown) {
+                    cell.style.backgroundColor = "black" ;
+                };
+            })
+
+            cell.addEventListener("click", (event) => {
+                cell.style.backgroundColor = "black";
+            })
         
             row.appendChild(cell);
         }
@@ -31,7 +54,7 @@ const btnGridSize = document.querySelector("#btnGridSize");
 
 btnGridSize.addEventListener("click", function() {
     let gridSize = window.prompt("Enter Grid Size:");
-    while(gridSize > 100) {
+    while(gridSize > 100 || gridSize < 1) {
         gridSize = window.prompt("ERROR, Grid Size must be less than or equal to 100:")
     }
 
